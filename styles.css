@@ -2,7 +2,8 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     color: #fff;
-    overflow-x: hidden;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    overflow-y: hidden; /* Prevent vertical scrolling */
     position: relative;
     height: 100vh;
     background: linear-gradient(135deg, #FF6F61, #FF9A8B, #FFCE00);
@@ -42,33 +43,31 @@ main {
     position: relative;
     z-index: 1;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
+    align-items: center;
     min-height: 80vh;
+    overflow-x: auto; /* Allow horizontal scrolling */
+    overflow-y: hidden; /* Prevent vertical scrolling */
+    white-space: nowrap; /* Prevent wrapping of child elements */
 }
 
 .projects {
-    max-width: 1200px;
-    width: 100%;
-    position: relative;
+    display: inline-flex; /* Use inline-flex for horizontal scrolling */
+    flex-wrap: nowrap;
+    gap: 20px;
+    align-items: flex-start;
+    width: max-content; /* Ensure content width determines container width */
+    padding-bottom: 20px; /* Space for horizontal scrollbar */
 }
 
 .projects-title {
     font-size: 2em;
     color: #ff0081;
     text-align: center;
-    margin-bottom: 200px; /* Moved up 160px more from the previous adjustment */
+    margin-bottom: 100px; /* Adjusted margin */
     text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000;
     position: relative;
     z-index: 2;
-}
-
-.project-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center; /* Center project boxes */
 }
 
 .project {
@@ -76,7 +75,7 @@ main {
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(255, 0, 130, 0.8);
     padding: 10px;
-    width: calc(25% - 20px);
+    width: 200px; /* Adjusted width for better fit */
     box-sizing: border-box;
     position: relative;
     overflow: hidden;
@@ -85,6 +84,7 @@ main {
     animation: fadeIn 1.5s ease-out;
     background: linear-gradient(45deg, rgba(255, 0, 130, 0.3), transparent); /* Default for completed projects */
     background-size: 200% 200%;
+    margin: 10px;
 }
 
 .project:hover {
@@ -95,7 +95,7 @@ main {
 
 .project h3 {
     margin-top: 0;
-    font-size: 1.2em;
+    font-size: 1em;
     color: #ff0081;
     transition: color 0.3s ease;
     text-shadow: 0 0 10px #ff0081, 0 0 20px #ff0081;
@@ -113,7 +113,7 @@ main {
 }
 
 .project p {
-    font-size: 0.9em;
+    font-size: 0.8em;
     margin: 10px 0;
 }
 
@@ -238,8 +238,8 @@ main {
 /* Responsive design adjustments */
 @media (max-width: 768px) {
     .project {
-        width: calc(50% - 20px);
-        font-size: 0.8em; /* Adjust font size for smaller screens */
+        width: 150px; /* Adjust width for smaller screens */
+        font-size: 0.9em; /* Adjust font size for smaller screens */
     }
 
     .projects-title {
@@ -254,8 +254,8 @@ main {
 
 @media (max-width: 480px) {
     .project {
-        width: calc(100% - 20px);
-        font-size: 0.7em; /* Further adjust font size */
+        width: 120px; /* Further adjust width */
+        font-size: 0.8em; /* Further adjust font size */
     }
 
     .projects-title {
