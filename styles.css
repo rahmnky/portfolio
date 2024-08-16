@@ -2,13 +2,13 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     color: #fff;
-    overflow-x: hidden; /* Prevent horizontal overflow */
-    position: relative;
+    overflow-x: hidden; /* Prevent horizontal scrollbars */
+    overflow-y: auto; /* Allow vertical scrolling */
     height: 100vh;
     background: linear-gradient(135deg, #FF6F61, #FF9A8B, #FFCE00);
     background-size: 300% 300%;
-    animation: gradientShift 10s ease infinite; /* Reduced animation time for smoother effect */
-    perspective: 1px; /* For parallax effect */
+    animation: gradientShift 10s ease infinite; /* Complex animation */
+    position: relative;
 }
 
 header {
@@ -38,24 +38,23 @@ header p {
 }
 
 main {
-    padding: 20px;
-    position: relative;
-    z-index: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 80vh;
-    overflow-y: auto; /* Allow vertical scrolling if needed */
-    overflow-x: hidden; /* Prevent horizontal scrolling */
-    width: 100%;
+    justify-content: center;
+    height: calc(100vh - 80px); /* Adjust height to fit within viewport */
+    padding: 20px; /* Padding to ensure content fits well */
+    position: relative;
+    z-index: 1;
+    overflow: hidden; /* Prevent scrollbars */
 }
 
 .projects {
-    display: flex; /* Use flex layout for better responsiveness */
+    display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    justify-content: center; /* Center project boxes */
-    max-width: 1000px; /* Set a maximum width for better fit */
+    justify-content: center;
+    max-width: 100%; /* Ensure it fits within viewport */
     padding-bottom: 20px; /* Space for potential vertical scrollbar */
 }
 
@@ -70,11 +69,11 @@ main {
 }
 
 .project {
-    border: 2px solid #ff0081; /* Border remains the same */
+    border: 2px solid #ff0081;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(255, 0, 130, 0.8);
     padding: 10px;
-    width: 180px; /* Adjusted width for better fit */
+    width: 150px; /* Adjusted width */
     box-sizing: border-box;
     position: relative;
     overflow: hidden;
@@ -194,7 +193,7 @@ body::before {
     width: 100%;
     height: 100%;
     background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 20%, transparent 80%);
-    animation: shine 6s linear infinite; /* Adjusted animation time for smoother effect */
+    animation: shine 6s linear infinite; /* Complex animation */
     z-index: 0;
     opacity: 0.5;
     pointer-events: none;
@@ -237,8 +236,8 @@ main {
 /* Responsive design adjustments */
 @media (max-width: 768px) {
     .project {
-        width: 150px; /* Adjust width for smaller screens */
-        font-size: 0.9em; /* Adjust font size for smaller screens */
+        width: 120px; /* Adjust width for smaller screens */
+        font-size: 0.8em; /* Adjust font size for smaller screens */
     }
 
     .projects-title {
@@ -253,8 +252,8 @@ main {
 
 @media (max-width: 480px) {
     .project {
-        width: 120px; /* Further adjust width */
-        font-size: 0.8em; /* Further adjust font size */
+        width: 100px; /* Further adjust width */
+        font-size: 0.7em; /* Further adjust font size */
     }
 
     .projects-title {
@@ -265,10 +264,4 @@ main {
     main {
         padding: 5px;
     }
-}
-
-/* Ensure links are easily tappable */
-.project a {
-    display: block;
-    padding: 10px;
 }
