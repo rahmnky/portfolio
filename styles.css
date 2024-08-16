@@ -3,7 +3,6 @@ body {
     font-family: Arial, sans-serif;
     color: #fff;
     overflow-x: hidden; /* Prevent horizontal scrollbars */
-    overflow-y: auto; /* Allow vertical scrolling */
     height: 100vh;
     background: linear-gradient(135deg, #FF6F61, #FF9A8B, #FFCE00);
     background-size: 300% 300%;
@@ -17,7 +16,6 @@ header {
     padding: 20px;
     text-align: center;
     border-bottom: 5px solid #ff0081;
-    animation: fadeIn 2s ease-out;
     position: relative;
     z-index: 1;
 }
@@ -25,7 +23,6 @@ header {
 header h1 {
     margin: 0;
     font-size: 2.5em;
-    animation: slideIn 1s ease-out;
     text-shadow: 0 0 10px #ff0081, 0 0 20px #ff0081;
 }
 
@@ -41,12 +38,22 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start; /* Align items to the top */
     height: calc(100vh - 80px); /* Adjust height to fit within viewport */
     padding: 20px; /* Padding to ensure content fits well */
+    box-sizing: border-box; /* Include padding in element's total width and height */
     position: relative;
-    z-index: 1;
-    overflow: hidden; /* Prevent scrollbars */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+.projects-title {
+    font-size: 2.5em;
+    color: #ff0081;
+    text-align: center;
+    margin: 0 0 20px; /* Adjust margin for spacing */
+    text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000;
+    position: relative;
+    z-index: 2;
 }
 
 .projects {
@@ -54,18 +61,12 @@ main {
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
+    width: 100%;
     max-width: 100%; /* Ensure it fits within viewport */
-    padding-bottom: 20px; /* Space for potential vertical scrollbar */
-}
-
-.projects-title {
-    font-size: 2em;
-    color: #ff0081;
-    text-align: center;
-    margin-bottom: 40px; /* Adjusted margin */
-    text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000;
+    padding: 0 10px; /* Padding to fit within the viewport */
+    box-sizing: border-box; /* Ensure padding does not affect width */
     position: relative;
-    z-index: 2;
+    overflow: hidden; /* Prevent scrollbars within project section */
 }
 
 .project {
@@ -137,7 +138,6 @@ footer {
     width: 100%;
     bottom: 0;
     border-top: 5px solid #ff0081;
-    animation: fadeIn 2s ease-out;
     z-index: 1;
     text-shadow: 0 0 5px #fff;
 }
@@ -241,8 +241,8 @@ main {
     }
 
     .projects-title {
-        font-size: 1.5em;
-        margin-bottom: 80px; /* Adjust margin for smaller screens */
+        font-size: 1.8em;
+        margin-bottom: 60px; /* Adjust margin for smaller screens */
     }
 
     main {
@@ -257,7 +257,7 @@ main {
     }
 
     .projects-title {
-        font-size: 1.2em;
+        font-size: 1.5em;
         margin-bottom: 40px; /* Further adjust margin */
     }
 
