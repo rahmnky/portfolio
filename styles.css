@@ -239,11 +239,37 @@ main {
 @media (max-width: 768px) {
     .project {
         width: calc(50% - 20px);
+        font-size: 0.8em; /* Adjust font size for smaller screens */
+    }
+
+    .projects-title {
+        font-size: 1.5em;
+        margin-bottom: 120px; /* Adjust margin for smaller screens */
+    }
+
+    main {
+        padding: 10px;
     }
 }
 
 @media (max-width: 480px) {
     .project {
         width: calc(100% - 20px);
+        font-size: 0.7em; /* Further adjust font size */
     }
+
+    .projects-title {
+        font-size: 1.2em;
+        margin-bottom: 80px; /* Further adjust margin */
+    }
+
+    main {
+        padding: 5px;
+    }
+}
+
+/* Ensure links are easily tappable */
+.project a {
+    display: block;
+    padding: 10px;
 }
