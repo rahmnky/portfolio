@@ -2,12 +2,13 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     color: #fff;
-    overflow-x: hidden; /* Prevent horizontal scrollbars */
+    overflow-x: hidden;
+    position: relative;
     height: 100vh;
     background: linear-gradient(135deg, #FF6F61, #FF9A8B, #FFCE00);
     background-size: 300% 300%;
-    animation: gradientShift 10s ease infinite; /* Complex animation */
-    position: relative;
+    animation: gradientShift 15s ease infinite;
+    perspective: 1px; /* For parallax effect */
 }
 
 header {
@@ -16,6 +17,7 @@ header {
     padding: 20px;
     text-align: center;
     border-bottom: 5px solid #ff0081;
+    animation: fadeIn 2s ease-out;
     position: relative;
     z-index: 1;
 }
@@ -23,6 +25,7 @@ header {
 header h1 {
     margin: 0;
     font-size: 2.5em;
+    animation: slideIn 1s ease-out;
     text-shadow: 0 0 10px #ff0081, 0 0 20px #ff0081;
 }
 
@@ -35,46 +38,45 @@ header p {
 }
 
 main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start; /* Align items to the top */
-    height: calc(100vh - 80px); /* Adjust height to fit within viewport */
-    padding: 20px; /* Padding to ensure content fits well */
-    box-sizing: border-box; /* Include padding in element's total width and height */
+    padding: 20px;
     position: relative;
-    overflow-x: hidden; /* Prevent horizontal scrolling */
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 80vh;
+}
+
+.projects {
+    max-width: 1200px;
+    width: 100%;
+    position: relative;
 }
 
 .projects-title {
-    font-size: 2.5em;
+    font-size: 2em;
     color: #ff0081;
     text-align: center;
-    margin: 0 0 20px; /* Adjust margin for spacing */
+    margin-bottom: 200px; /* Moved up 160px more from the previous adjustment */
     text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000;
     position: relative;
     z-index: 2;
 }
 
-.projects {
+.project-list {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    justify-content: center;
-    width: 100%;
-    max-width: 100%; /* Ensure it fits within viewport */
-    padding: 0 10px; /* Padding to fit within the viewport */
-    box-sizing: border-box; /* Ensure padding does not affect width */
-    position: relative;
-    overflow: hidden; /* Prevent scrollbars within project section */
+    justify-content: center; /* Center project boxes */
 }
 
 .project {
-    border: 2px solid #ff0081;
+    border: 2px solid #ff0081; /* Border remains the same */
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(255, 0, 130, 0.8);
     padding: 10px;
-    width: 150px; /* Adjusted width */
+    width: calc(25% - 20px);
     box-sizing: border-box;
     position: relative;
     overflow: hidden;
@@ -83,7 +85,6 @@ main {
     animation: fadeIn 1.5s ease-out;
     background: linear-gradient(45deg, rgba(255, 0, 130, 0.3), transparent); /* Default for completed projects */
     background-size: 200% 200%;
-    margin: 10px;
 }
 
 .project:hover {
@@ -94,7 +95,7 @@ main {
 
 .project h3 {
     margin-top: 0;
-    font-size: 1em;
+    font-size: 1.2em;
     color: #ff0081;
     transition: color 0.3s ease;
     text-shadow: 0 0 10px #ff0081, 0 0 20px #ff0081;
@@ -112,7 +113,7 @@ main {
 }
 
 .project p {
-    font-size: 0.8em;
+    font-size: 0.9em;
     margin: 10px 0;
 }
 
@@ -138,6 +139,7 @@ footer {
     width: 100%;
     bottom: 0;
     border-top: 5px solid #ff0081;
+    animation: fadeIn 2s ease-out;
     z-index: 1;
     text-shadow: 0 0 5px #fff;
 }
@@ -193,7 +195,7 @@ body::before {
     width: 100%;
     height: 100%;
     background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 20%, transparent 80%);
-    animation: shine 6s linear infinite; /* Complex animation */
+    animation: shine 4s linear infinite;
     z-index: 0;
     opacity: 0.5;
     pointer-events: none;
@@ -236,32 +238,12 @@ main {
 /* Responsive design adjustments */
 @media (max-width: 768px) {
     .project {
-        width: 120px; /* Adjust width for smaller screens */
-        font-size: 0.8em; /* Adjust font size for smaller screens */
-    }
-
-    .projects-title {
-        font-size: 1.8em;
-        margin-bottom: 60px; /* Adjust margin for smaller screens */
-    }
-
-    main {
-        padding: 10px;
+        width: calc(50% - 20px);
     }
 }
 
 @media (max-width: 480px) {
     .project {
-        width: 100px; /* Further adjust width */
-        font-size: 0.7em; /* Further adjust font size */
-    }
-
-    .projects-title {
-        font-size: 1.5em;
-        margin-bottom: 40px; /* Further adjust margin */
-    }
-
-    main {
-        padding: 5px;
+        width: calc(100% - 20px);
     }
 }
